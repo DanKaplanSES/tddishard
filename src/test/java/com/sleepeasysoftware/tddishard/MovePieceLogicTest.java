@@ -29,4 +29,15 @@ public class MovePieceLogicTest {
         assertThat(output.get("a2"), nullValue());
         assertThat(output.get("a3"), equalTo("fooPiece"));
     }
+
+    @Test
+    public void inputIsUnchanged() throws Exception {
+        Map<String, String> input = new HashMap<String, String>();
+        input.put("a2", "fooPiece");
+
+        movePiece.execute(input, "a2", "a3");
+
+        assertThat(input.get("a2"), equalTo("fooPiece"));
+        assertThat(input.get("a3"), nullValue());
+    }
 }
