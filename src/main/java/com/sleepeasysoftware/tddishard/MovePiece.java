@@ -5,8 +5,9 @@ import java.util.Map;
 
 class MovePiece {
     Map<String, String> execute(Map<String, String> board, String source, String destination) {
-        String piece = board.remove(source);
-        board.put(destination, piece);
-        return board;
+        Map<String, String> output = new HashMap<String, String>(board);
+        String piece = output.remove(source);
+        output.put(destination, piece);
+        return output;
     }
 }
