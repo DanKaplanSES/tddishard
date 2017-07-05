@@ -40,4 +40,9 @@ public class PlayerMoveCollaborationTest {
         verify(validateMove).execute(boardBeforePlayerMove, "a2", "a3");
         assertThat(response, equalTo(boardWithPlayerMove));
     }
+
+    @Test(expected = RuntimeException.class)
+    public void invalidCallThrowsError() throws Exception {
+        //Use your imagination
+    }
 }
