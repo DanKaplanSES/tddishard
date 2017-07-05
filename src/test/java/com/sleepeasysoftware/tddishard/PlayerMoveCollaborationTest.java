@@ -25,10 +25,19 @@ public class PlayerMoveCollaborationTest {
     @Mock
     private Map<String, String> boardWithPlayerMove;
 
+    // DEPENDENCIES
+    @Mock
+    private MovePiece movePiece;
+    @Mock
+    private ValidateMove validateMove;
+
     @Test
     public void validCallReturnsBoard() throws Exception {
+        when(movePiece.execute(boardBeforePlayerMove, "a2", "a3")).thenReturn(boardWithPlayerMove);
+
         Map<String, String> response = subject.execute(boardBeforePlayerMove, "a2", "a3");
 
+        verify(validateMove).execute(boardBeforePlayerMove, "a2", "a3");
         assertThat(response, equalTo(boardWithPlayerMove));
     }
 }
